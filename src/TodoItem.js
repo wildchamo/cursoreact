@@ -1,8 +1,12 @@
 import React from "react";
 
-function TodoItem(){
-    return(
-        <h2>Has completado 2 de 3 TODOs</h2>
-    );
+function TodoItem(props) {
+  return (
+    <li>
+      <span>C</span>
+      <p>{props.text}</p>
+      <span>X</span>
+    </li>
+  );
 }
-export {TodoItem};
+export { TodoItem };

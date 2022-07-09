@@ -1,9 +1,14 @@
 import React from "react";
 
-function TodoList(){
+function TodoList(props){
     return(
-        <input placeholder="Cebolla" />
+        <section>
+            <ul>
+                {props.children}
+            </ul>
+        </section>
     );
 }
 
-export {TodoList}
+
+export { TodoList };
