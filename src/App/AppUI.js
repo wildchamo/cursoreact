@@ -8,7 +8,7 @@ import { TodoContext } from "./todoContext/index";
 import {Modal} from "../modal"
 
 function AppUI() {
-  const { error, loading, searchedTodos, completeTodo, deleteTodo } =
+  const { error, loading, searchedTodos, completeTodo, deleteTodo, openModal,setOpenModal } =
     React.useContext(TodoContext);
   return (
     <React.Fragment>
@@ -31,11 +31,16 @@ function AppUI() {
         ))}
       </TodoList>
 
-      <Modal>
-        <p>teletransportación</p>
-      </Modal>
 
-      <CreateTodoButton />
+      {openModal && (
+      <Modal>
+        <p>{searchedTodos[0]?.text}</p>
+      </Modal>
+      )}
+
+      <CreateTodoButton 
+        setOpenModal={setOpenModal}
+      />
     </React.Fragment>
   );
 }
