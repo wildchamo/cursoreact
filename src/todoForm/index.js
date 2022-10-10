@@ -1,42 +1,63 @@
 import React from "react";
 import { TodoContext } from "../App/todoContext";
+import "./todoform.css"
 
-function ToDoForm() {
-  const [newTodoValue, setNewTodoValue] = React.useState();
-  const { AddTodo, setOpenModal } = React.useContext(TodoContext);
-
-  const onCancel = () => {
-    setOpenModal(false)
-  };
-  const onChange = (event) => {
-    setNewTodoValue(event.target.value);
-  };
-
-  const onSubmit = (event) => {
-    event.preventDefault();
-    AddTodo(newTodoValue);
-    setOpenModal(false)
-  };
-
-  return (
-    <form onSubmit={onSubmit}>
-      <label></label>
-      <textarea
-        value={newTodoValue}
-        onChange={onChange}
-        placeholder="Cortar la cebolla para el almuerzo"
-      ></textarea>
-      <div>
-        <button type="button" onClick={onCancel}>
-          Cancelar
-        </button>
-
-        <button type="submit" onClick={onSubmit}>
-          Añadir
-        </button>
-      </div>
-    </form>
-  );
-}
-
-export { ToDoForm };
+function TodoForm() {
+    // Creamos un estado para nuestro nuevo TODO
+    const [newTodoValue, setNewTodoValue] = React.useState('');
+    // Desestructuramos las funciones que necesitamos para añadir un TODO y cerrar nuestro modal
+    const {
+      addTodo,
+      setOpenModal,
+    } = React.useContext(TodoContext);
+    
+    // Creamos una función para actualizar el estado de nuestro nuevo TODO
+    const onChange = (event) => {
+      setNewTodoValue(event.target.value);
+    };
+    
+    // Función para cerrar el modal
+    const onCancel = () => {
+      setOpenModal(false);
+    };
+    
+    // Función para agregar nuestro nuevo TODO
+    const onSubmit = (event) => {
+      // prevent default para evitar recargar la página
+      event.preventDefault();
+      // Utilizamos nuestra función para añadir nuestro TODO
+      addTodo(newTodoValue);
+      // Cerramos nustro modal
+      setOpenModal(false);
+      // También estaría bien resetear nuestro formulario
+      setNewTodoValue('')
+    };
+  
+    return (
+      <form onSubmit={onSubmit}>
+        <label>Escribe tu nuevo TODO</label>
+        <textarea
+          value={newTodoValue}
+          onChange={onChange}
+          placeholder="Cortar la cebolla para el almuerzo"
+        />
+        <div className="TodoForm-buttonContainer">
+          <button
+            type="button"
+            className="TodoForm-button TodoForm-button--cancel"
+            onClick={onCancel}
+            >
+            Cancelar
+          </button>
+          <button
+            type="submit"
+            className="TodoForm-button TodoForm-button--add"
+          >
+            Añadir
+          </button>
+        </div>
+      </form>
+    );
+  }
+  
+  export { TodoForm };
