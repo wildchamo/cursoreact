@@ -43,7 +43,7 @@ function TodoProvider(props) {
     saveTodos(newTodos);
   };
 
-  const AddTodo = (text) => {
+  const addTodo = (text) => {
     const newTodos = [...todos];
     newTodos.push({
       completed: false,
@@ -63,7 +63,7 @@ function TodoProvider(props) {
         totalTodos,
         completedTodos,
         searchValue,
-        AddTodo,
+        addTodo,
         setSearchValue,
         searchedTodos,
         completeTodo,
