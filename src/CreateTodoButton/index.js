@@ -1,5 +1,5 @@
-import React from "react";
-import "./style/CreateTodoButton.css";
+import React from 'react';
+import './CreateTodoButton.css';
 
 function CreateTodoButton(props) {
   const onClickButton = () => {
@@ -7,7 +7,10 @@ function CreateTodoButton(props) {
   };
 
   return (
-    <button className="CreateTodoButton" onClick={onClickButton}>
+    <button
+      className="CreateTodoButton"
+      onClick={onClickButton}
+    >
       +
     </button>
   );
