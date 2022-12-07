@@ -38,10 +38,13 @@ function App() {
       <TodoList
         error={error}
         loading={loading}
+        totalTodos={totalTodos}
         searchedTodos={searchedTodos}
+        searchT={searchValue}
         onError={() => <TodosError />}
         onLoading={() => <TodosLoading />}
         onEmptyTodos={() => <EmptyTodos />}
+        onEmptySearchR={(searchText)=><p>No hay resultado para {searchText}</p>}
         render={(todo) => (
           <TodoItem
             key={todo.text}
