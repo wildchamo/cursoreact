@@ -19,3 +19,9 @@
 .TodoItem-p--complete {
   text-decoration: line-through;
 }
+.TodoItem img{
+  cursor: pointer;
+  position: absolute;
+    top: -9px;
+    right: 41px;
+}
