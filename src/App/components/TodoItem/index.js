@@ -1,23 +1,27 @@
-import React from "react";
-import { CompleteIcon } from "../TodoIcon/CompleteIcon";
-import { DeleteIcon } from "../TodoIcon/DeleteIcon";
-import penIcon from "./penIcon.png";
-
-import "./TodoItem.css";
+import React from 'react';
+import { CompleteIcon } from '../TodoIcon/CompleteIcon';
+import { EditIcon } from '../TodoIcon/EditIcon';
+import { DeleteIcon } from '../TodoIcon/DeleteIcon';
+import './TodoItem.css';
 
 function TodoItem(props) {
-  const onEdit = () => {
-    console.log("Hola, Jose");
-  };
-
   return (
     <li className="TodoItem">
-      <CompleteIcon completed={props.completed} onComplete={props.onComplete} />
-      <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
+      <CompleteIcon
+        completed={props.completed}
+        onComplete={props.onComplete}
+      />
+      <p
+        className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}
+      >
         {props.text}
       </p>
-      <DeleteIcon onDelete={props.onDelete} />
-      <img onclick={onEdit()} src={penIcon} />
+      <EditIcon
+        onEdit={props.onEdit}
+      />
+      <DeleteIcon
+        onDelete={props.onDelete}
+      />
     </li>
   );
 }
