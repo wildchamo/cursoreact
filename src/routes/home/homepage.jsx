@@ -1,18 +1,18 @@
 import React from "react";
-import { useTodos } from "./useTodos";
-import { TodoHeader } from "../TodoHeader";
-import { TodoCounter } from "../TodoCounter";
-import { TodoSearch } from "../TodoSearch";
-import { TodoList } from "../TodoList";
-import { TodoItem } from "../TodoItem";
-import { TodosError } from "../TodosError";
-import { TodosLoading } from "../TodosLoading";
-import { EmptyTodos } from "../EmptyTodos";
-import { TodoForm } from "../TodoForm";
-import { CreateTodoButton } from "../CreateTodoButton";
-import { Modal } from "../Modal";
+import { useTodos } from "../../App/useTodos";
+import { TodoHeader } from "../../App/components/TodoHeader";
+import { TodoCounter } from "../../App/components/TodoCounter";
+import { TodoSearch } from "../../App/components/TodoSearch";
+import { TodoList } from "../../App/components/TodoList";
+import { TodoItem } from "../../App/components/TodoItem";
+import { TodosError } from "../../App/components/TodosError";
+import { TodosLoading } from "../../App/components/TodosLoading";
+import { EmptyTodos } from "../../App/components/EmptyTodos";
+import { TodoForm } from "../../App/components/TodoForm";
+import { CreateTodoButton } from "../../App/components/CreateTodoButton";
+import { Modal } from "../../App/components/Modal";
 
-function App() {
+function HomePage() {
   const {
     error,
     loading,
@@ -69,4 +69,4 @@ function App() {
   );
 }
 
-export default App;
+export { HomePage };
