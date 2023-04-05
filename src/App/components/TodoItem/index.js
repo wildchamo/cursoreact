@@ -6,6 +6,10 @@ import penIcon from "./penIcon.png";
 import "./TodoItem.css";
 
 function TodoItem(props) {
+  const onEdit = () => {
+    console.log("Hola, Jose");
+  };
+
   return (
     <li className="TodoItem">
       <CompleteIcon completed={props.completed} onComplete={props.onComplete} />
@@ -13,7 +17,7 @@ function TodoItem(props) {
         {props.text}
       </p>
       <DeleteIcon onDelete={props.onDelete} />
-      <img src={penIcon}/>
+      <img onclick={onEdit()} src={penIcon} />
     </li>
   );
 }
